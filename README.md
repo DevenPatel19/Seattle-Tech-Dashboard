@@ -35,7 +35,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-
+<!-- ******************************************************************************* -->
 Your Project Idea: The "Seattle Tech Insights Dashboard"
 This project is specifically designed to impress companies like Truveta (data visualization), DoorDash (logistics/data), and Vultr (modern React/TypeScript).
 
@@ -47,6 +47,10 @@ Relevant: Shows you understand the local tech scene.
 Technical Showcase: Hits all the key skills - TypeScript, React, API integration, data visualization, and a clean UI.
 
 Storytelling: You can talk about why you built it in interviews.
+
+<!-- ******************************************************************************* -->
+
+
 
 Core Features:
 
