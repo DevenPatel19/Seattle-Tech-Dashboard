@@ -55,7 +55,7 @@ npm run dev
 ```
 5. ** Open [localhost](http://localhost:3000) in your browser**
 
-📁 Project Structure
+## 📁 Project Structure
 ```text
 src/
 ├── app/                 # Next.js App Router pages
@@ -81,7 +81,7 @@ src/
 │   └── dashboard.ts    # Component prop types
 └── (other folders)     # context, hooks, lib, styles
 ```
-🎯 Technical Highlights
+## 🎯 Technical Highlights
 TypeScript Excellence
 Full type safety across all components
 
@@ -110,8 +110,8 @@ Component-based architecture
 
 Performance-optimized chart rendering
 
-🚧 Development Phases
-✅ Phase 1: Foundation & API Integration
+## 🚧 Development Phases
+### ✅ Phase 1: Foundation & API Integration
 Next.js + TypeScript setup
 
 Tailwind CSS styling system
@@ -120,7 +120,7 @@ Adzuna & GitHub Jobs API integration
 
 Professional chart visualizations
 
-🔄 Phase 2: Advanced Features (In Progress)
+### 🔄 Phase 2: Advanced Features (In Progress)
 Real-time data updates
 
 Interactive filters and date ranges
@@ -129,7 +129,7 @@ Additional data sources
 
 User authentication
 
-📋 Phase 3: Production Polish
+### 📋 Phase 3: Production Polish
 Performance optimization
 
 Accessibility improvements
@@ -138,7 +138,7 @@ Comprehensive testing
 
 Deployment pipeline
 
-🌐 API Integration
+## 🌐 API Integration
 This project demonstrates real-world API integration with:
 
 Adzuna Jobs API - Primary data source for tech job postings
@@ -147,7 +147,7 @@ GitHub Jobs API - Fallback data source
 
 Seattle Open Data - Economic indicators (planned)
 
-🎨 Design System
+## 🎨 Design System
 Colors: Professional blue-to-emerald gradients
 
 Typography: Clean, readable fonts
@@ -156,10 +156,10 @@ Layout: Responsive grid with consistent spacing
 
 Charts: Accessible data visualizations with proper contrast
 
-🤝 Contributing
+## 🤝 Contributing
 This is a portfolio project demonstrating professional development practices. Feel free to fork and adapt for your own learning!
 
-📄 License
+## 📄 License
 MIT License - feel free to use this project for learning and portfolio purposes.
 
-Built with ❤️ for the Seattle tech community
+# Built with ❤️ for the Seattle tech community
