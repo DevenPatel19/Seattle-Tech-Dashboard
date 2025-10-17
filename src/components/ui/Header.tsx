@@ -1,3 +1,4 @@
+// src\components\ui\Header.tsx
 // Even simple components can have typed props for future expansion
 interface HeaderProps {
   title?: string;

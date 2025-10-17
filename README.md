@@ -1,65 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Seattle Tech Insights Dashboard 🚀
 
-## Getting Started
+A professional, data-driven dashboard built with Next.js and TypeScript to visualize the Seattle tech industry landscape. This project demonstrates modern frontend development practices and real-world API integration.
 
-First, run the development server:
+![Dashboard Preview](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Seattle+Tech+Dashboard) <!-- Add actual screenshot later -->
 
+## ✨ Features
+
+- **Real-time Job Market Data** - Live integration with Adzuna & GitHub Jobs APIs
+- **Professional Data Visualization** - Beautiful gradient charts with Chart.js
+- **Type-Safe Architecture** - Full TypeScript implementation with proper interfaces
+- **Responsive Design** - Mobile-first design with Tailwind CSS
+- **Smart API Fallbacks** - Multiple data sources with graceful degradation
+- **Modern React Patterns** - Components, hooks, and state management
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Charts**: Chart.js + react-chartjs-2
+- **APIs**: Adzuna Jobs, GitHub Jobs, Seattle Open Data
+- **Deployment**: Vercel
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- Adzuna API account (free tier)
+
+### Installation
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone <your-repo-url>
+   cd seattle-tech-dashboard
+```
+2 **Install Dependencies**
+```bash
+    npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3 **Set up environment variables**
+```bash 
+cp .env.local.example .env.local
+```
+Add your API credentials:
+```env
+NEXT_PUBLIC_ADZUNA_APP_ID=your_app_id_here
+NEXT_PUBLIC_ADZUNA_APP_KEY=your_app_key_here
+```
+4. **Run the development server
+```bash
+npm run dev
+```
+5. ** Open [localhost](http://localhost:3000) in your browser**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📁 Project Structure
+```text
+src/
+├── app/                 # Next.js App Router pages
+│   ├── layout.tsx       # Root layout with HTML structure
+│   └── page.tsx         # Main dashboard page
+├── components/          # React components
+│   ├── dashboard/       # Dashboard-specific components
+│   │   ├── StatsGrid.tsx    # Key metrics display
+│   │   └── TechJobsChart.tsx # Data visualization
+│   ├── test/           # Development test components
+│   └── ui/             # Reusable UI components
+│       └── Header.tsx      # Dashboard header
+├── services/           # API services and data layer
+│   └── api/
+│       ├── adapters/    # External API clients
+│       │   ├── adzuna.ts    # Adzuna Jobs API
+│       │   └── github.ts    # GitHub Jobs API
+│       ├── fallbacks/   # Smart fallback system
+│       ├── cache/       # Performance caching
+│       └── index.ts     # Service exports
+├── types/              # TypeScript definitions
+│   ├── api.ts          # API response types
+│   └── dashboard.ts    # Component prop types
+└── (other folders)     # context, hooks, lib, styles
+```
+🎯 Technical Highlights
+TypeScript Excellence
+Full type safety across all components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Generic interfaces for API responses
 
-## Learn More
+Proper error handling with typed exceptions
 
-To learn more about Next.js, take a look at the following resources:
+Professional API Layer
+Multi-source fallbacks (Adzuna → GitHub Jobs → Mock data)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Request caching to respect rate limits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Error resilience with graceful degradation
 
-## Deploy on Vercel
+Modern UI/UX
+Blue-to-Emerald gradients matching Seattle's "Emerald City" theme
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Responsive grid layouts with Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Smooth hover interactions and transitions
 
-<!-- ******************************************************************************* -->
-Your Project Idea: The "Seattle Tech Insights Dashboard"
-This project is specifically designed to impress companies like Truveta (data visualization), DoorDash (logistics/data), and Vultr (modern React/TypeScript).
+Production Ready
+Environment variable configuration
 
-Concept: A dashboard that visualizes key tech industry metrics in the Seattle area.
-Why it's perfect:
+Component-based architecture
 
-Relevant: Shows you understand the local tech scene.
+Performance-optimized chart rendering
 
-Technical Showcase: Hits all the key skills - TypeScript, React, API integration, data visualization, and a clean UI.
+🚧 Development Phases
+✅ Phase 1: Foundation & API Integration
+Next.js + TypeScript setup
 
-Storytelling: You can talk about why you built it in interviews.
+Tailwind CSS styling system
 
-<!-- ******************************************************************************* -->
+Adzuna & GitHub Jobs API integration
 
+Professional chart visualizations
 
+🔄 Phase 2: Advanced Features (In Progress)
+Real-time data updates
 
-Core Features:
+Interactive filters and date ranges
 
-Tech Job Market Tracker: Pull from a public API (like Adzuna or USAJobs) to show trending programming languages in Seattle job postings.
+Additional data sources
 
-Company Funding News: Display recent tech funding rounds in Seattle from a news API.
+User authentication
 
-Seattle Traffic vs. Tech Hubs: Use a traffic API to create a simple comparison chart (shows problem-solving relevant to DoorDash).
+📋 Phase 3: Production Polish
+Performance optimization
 
-Clean, responsive UI built with Tailwind CSS.
+Accessibility improvements
 
-Tech Stack: Next.js 14 (App Router), TypeScript, Tailwind CSS, Recharts (for graphs), Axios for API calls.
+Comprehensive testing
+
+Deployment pipeline
+
+🌐 API Integration
+This project demonstrates real-world API integration with:
+
+Adzuna Jobs API - Primary data source for tech job postings
+
+GitHub Jobs API - Fallback data source
+
+Seattle Open Data - Economic indicators (planned)
+
+🎨 Design System
+Colors: Professional blue-to-emerald gradients
+
+Typography: Clean, readable fonts
+
+Layout: Responsive grid with consistent spacing
+
+Charts: Accessible data visualizations with proper contrast
+
+🤝 Contributing
+This is a portfolio project demonstrating professional development practices. Feel free to fork and adapt for your own learning!
+
+📄 License
+MIT License - feel free to use this project for learning and portfolio purposes.
+
+Built with ❤️ for the Seattle tech community
