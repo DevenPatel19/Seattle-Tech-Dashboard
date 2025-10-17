@@ -2,7 +2,7 @@
 
 A professional, data-driven dashboard built with Next.js and TypeScript to visualize the Seattle tech industry landscape. This project demonstrates modern frontend development practices and real-world API integration.
 
-![Dashboard Preview](https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Seattle+Tech+Dashboard) <!-- Add actual screenshot later -->
+![Dashboard Preview](public\screentshot.svg) <!-- Add actual screenshot later -->
 
 ## ✨ Features
 
