@@ -1,9 +1,7 @@
-// src\components\dashboard\StatsGrid.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
 import { fetchJobsWithFallback } from '@/services/api';
-// import { JobPosting } from '@/types/api'; TODO:to  implement cards for each post 
 
 interface StatItem {
   label: string;
@@ -18,19 +16,26 @@ export default function StatsGrid() {
     { label: 'Companies', value: 'Loading...', description: 'Tech companies in Seattle' },
   ]);
   const [loading, setLoading] = useState(true);
+  const [dataSource, setDataSource] = useState<string>('Checking...');
 
   useEffect(() => {
     const loadData = async () => {
       const result = await fetchJobsWithFallback();
       
+      // Determine data source for debugging
+      if (result.error && result.error.includes('Adzuna API credentials')) {
+        setDataSource('Mock Data - Missing API Keys');
+      } else if (result.data) {
+        // Check if data looks like mock data
+        const firstJob = result.data[0];
+        const isMockData = firstJob.company === 'Amazon' || firstJob.company === 'Microsoft';
+        setDataSource(isMockData ? 'Mock Data (Fallback)' : 'Live API Data');
+      }
+      
       if (result.data && result.data.length > 0) {
         // Calculate real stats from API data
         const jobCount = result.data.length;
-        
-        // Extract unique companies
         const uniqueCompanies = new Set(result.data.map(job => job.company));
-        
-        // Simple salary estimation based on job titles
         const hasSeniorRoles = result.data.some(job => 
           job.title.toLowerCase().includes('senior') || 
           job.title.toLowerCase().includes('lead') ||
@@ -44,13 +49,6 @@ export default function StatsGrid() {
           { label: 'Avg Salary', value: avgSalary, description: 'Based on current roles' },
           { label: 'Companies', value: uniqueCompanies.size.toLocaleString(), description: 'Hiring in Seattle' },
         ]);
-      } else {
-        // Fallback to enhanced mock data calculations
-        setStats([
-          { label: 'Tech Jobs', value: '2,458', description: 'Active positions' },
-          { label: 'Avg Salary', value: '$127k', description: 'Senior developer' },
-          { label: 'Companies', value: '2,341', description: 'Tech companies in Seattle' },
-        ]);
       }
       
       setLoading(false);
@@ -61,6 +59,18 @@ export default function StatsGrid() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Debug info - you can remove this after verification */}
+      <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+        <p className="text-sm text-blue-800">
+          <strong>Data Source:</strong> {dataSource}
+          {dataSource.includes('Mock') && (
+            <span className="block mt-1 text-xs">
+              ℹ️ Add Adzuna API keys in Vercel environment variables for live data
+            </span>
+          )}
+        </p>
+      </div>
+      
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
           <div 
