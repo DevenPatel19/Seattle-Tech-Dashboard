@@ -61,7 +61,7 @@ export default function TechJobsChart({ data = defaultData }: TechJobsChartProps
       {
         label: 'Job Postings',
         data: data.map((item: JobData) => item.jobs),
-        backgroundColor: 'rgba(79, 70, 229, 0.8)',
+        backgroundColor: 'gradient: rgb(0, 152, 224, 0.8)',
       },
     ],
   };
