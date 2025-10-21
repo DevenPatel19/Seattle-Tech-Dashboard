@@ -30,13 +30,19 @@ export default function StatsGrid() {
           job.title.toLowerCase().includes('lead') ||
           job.title.toLowerCase().includes('principal')
         );
-        
+        const hasEntryLevelRoles = result.data.some(job =>
+          job.title.toLowerCase().includes('junior') ||
+          job.title.toLowerCase().includes('intern') ||
+          job.title.toLowerCase().includes('associate')
+        );
         const avgSalary = hasSeniorRoles ? '$135k' : '$127k';
+        const avgStatSalary = hasEntryLevelRoles ? '$95k' : avgSalary;
         
         setStats([
           { label: 'Tech Jobs', value: jobCount.toLocaleString(), description: 'Active positions' },
           { label: 'Avg Salary', value: avgSalary, description: 'Based on current roles' },
           { label: 'Companies', value: uniqueCompanies.size.toLocaleString(), description: 'Hiring in Seattle' },
+          { label: 'Avg Stat Salary', value: avgStatSalary, description: 'Based on role levels' },
         ]);
       } else {
         // Fallback to enhanced mock data calculations
@@ -44,6 +50,7 @@ export default function StatsGrid() {
           { label: 'Tech Jobs', value: '2,458', description: 'Active positions' },
           { label: 'Avg Salary', value: '$127k', description: 'Senior developer' },
           { label: 'Companies', value: '2,341', description: 'Tech companies in Seattle' },
+          { label: 'Avg Stat Salary', value: '$95k', description: 'Based on role levels' },
         ]);
       }
       
