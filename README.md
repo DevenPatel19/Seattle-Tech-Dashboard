@@ -2,8 +2,7 @@
 
 A professional, data-driven dashboard built with Next.js and TypeScript to visualize the Seattle tech industry landscape. This project demonstrates modern frontend development practices and real-world API integration.
 
-![Dashboard Preview](public\screentshot.svg) <!-- Add actual screenshot later -->
-
+![Dashboard Preview](public\screentshot.svg)
 ## ✨ Features
 
 - **Real-time Job Market Data** - Live integration with Adzuna & GitHub Jobs APIs
@@ -21,6 +20,70 @@ A professional, data-driven dashboard built with Next.js and TypeScript to visua
 - **Charts**: Chart.js + react-chartjs-2
 - **APIs**: Adzuna Jobs, GitHub Jobs, Seattle Open Data
 - **Deployment**: Vercel
+
+## 🧪 Testing Strategy
+
+### Testing Philosophy
+- **Behavior Over Implementation**: Tests focus on user-observable behavior rather than implementation details
+- **Critical Paths First**: Test the most important user flows and data integration points
+- **Realistic Scenarios**: Mock external dependencies but test real component behavior
+
+### Test Architecture
+```bash
+src/
+├── tests/
+│ ├── components/ # Component unit tests
+│ ├── utils/ # Test utilities and mocks
+│ └── integration/ # Integration tests
+├── services/ # API service tests (coming soon)
+└── ...
+```
+
+### Testing Stack
+- **Jest** - Test runner and assertion library
+- **React Testing Library** - Component testing utilities
+- **@testing-library/jest-dom** - Custom DOM matchers
+- **@testing-library/user-event** - User interaction testing
+
+### Test Coverage
+- ✅ Component rendering states (loading, success, error)
+- ✅ API integration and error handling
+- ✅ User interface behavior
+- ✅ Data transformation logic
+
+### Example: StatsGrid Component Tests
+```typescript
+// Tests user experience, not implementation details
+test('displays fallback data on API error', async () => {
+  // Mock API failure
+  // Render component
+  // Verify user sees proper fallback UI with formatted data
+  // Test passes even if exact numbers change (business logic)
+});
+```
+
+### Running Tests
+```bash
+# Run all tests
+npm test
+
+# Run specific test file
+npm test -- StatsGrid.test.tsx
+
+# Watch mode for development
+npm run test:watch
+```
+
+### Testing Principles Demonstrated
+- **1. User-Centric Testing:** Verify what users actually experience
+
+- **2. Resilient Tests:** Tests don't break with UI/text changes
+
+- **3. Clear Boundaries:** Mock external dependencies, test internal logic
+
+- **4. Progressive Enhancement:** Start with critical paths, expand coverage
+
+
 
 ## 🚀 Getting Started
 
