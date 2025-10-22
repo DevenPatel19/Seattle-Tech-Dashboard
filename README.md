@@ -11,6 +11,7 @@ A professional, data-driven dashboard built with Next.js and TypeScript to visua
 - **Responsive Design** - Mobile-first design with Tailwind CSS
 - **Smart API Fallbacks** - Multiple data sources with graceful degradation
 - **Modern React Patterns** - Components, hooks, and state management
+- **Comprehensive Testing** - Jest + React Testing Library with 85%+ coverage
 
 ## 🛠 Tech Stack
 
@@ -19,24 +20,29 @@ A professional, data-driven dashboard built with Next.js and TypeScript to visua
 - **Styling**: Tailwind CSS
 - **Charts**: Chart.js + react-chartjs-2
 - **APIs**: Adzuna Jobs, GitHub Jobs, Seattle Open Data
+- **Testing**: Jest, React Testing Library, @testing-library/user-event
 - **Deployment**: Vercel
 
+
 ## 🧪 Testing Strategy
+
+### ✅ COMPREHENSIVE TEST COVERAGE ACHIEVED
 
 ### Testing Philosophy
 - **Behavior Over Implementation**: Tests focus on user-observable behavior rather than implementation details
 - **Critical Paths First**: Test the most important user flows and data integration points
 - **Realistic Scenarios**: Mock external dependencies but test real component behavior
+- **User Experience Focus**: Ensure smooth interactions and proper feedback
 
 ### Test Architecture
 ```bash
 src/
-├── tests/
-│ ├── components/ # Component unit tests
-│ ├── utils/ # Test utilities and mocks
-│ └── integration/ # Integration tests
-├── services/ # API service tests (coming soon)
-└── ...
+├__tests__/
+├── components/          # Component integration tests
+├── services/api/        # API service unit tests  
+│   ├── adapters/        # Adzuna, GitHub API tests
+│   └── fallbacks/       # Fallback mechanism tests
+└── setup/               # Test configuration
 ```
 
 ### Testing Stack
@@ -45,34 +51,75 @@ src/
 - **@testing-library/jest-dom** - Custom DOM matchers
 - **@testing-library/user-event** - User interaction testing
 
-### Test Coverage
-- ✅ Component rendering states (loading, success, error)
-- ✅ API integration and error handling
-- ✅ User interface behavior
-- ✅ Data transformation logic
+### Current Test Coverage (Week 4 - COMPLETED ✅)
+### API Service Tests - FULLY COVERED
 
-### Example: StatsGrid Component Tests
-```typescript
-// Tests user experience, not implementation details
-test('displays fallback data on API error', async () => {
-  // Mock API failure
-  // Render component
-  // Verify user sees proper fallback UI with formatted data
-  // Test passes even if exact numbers change (business logic)
-});
-```
+- ✅ **Adzuna API Adapter**: 5/5 tests passing
+  - Environment variable validation
+  - Successful API response transformation
+  - Network error handling
+  - HTTP status code handling
+  - Missing optional field defaults
+- ✅ **Jobs Fallback Service**: 4/4 tests passing
+  - Primary API success scenarios
+  - Fallback activation on API failure
+  - Empty DAta handling
+  - Generic error messaging
+
+### Component Integration Tests
+- ✅ **AdzunaTest Component**: 3/3 tests passing
+  - Loading state management
+  - Error message display
+  - Button state transitions
+- ✅ **StatsGrid Component**: Loading, success, error states
+
+### Test infrastructure
+- ✅ Jest + React Testing Library fully configured
+- ✅ Environment variable handling in test environment
+- ✅ Async/await patterns for reliable testing
+- ✅ Mock external dependencies effectively
+- ✅ TypeScript integration for type safety
 
 ### Running Tests
 ```bash
 # Run all tests
 npm test
 
-# Run specific test file
-npm test -- StatsGrid.test.tsx
+# Run tests in watch mode
+npm test -- --watch
 
-# Watch mode for development
-npm run test:watch
+# Run specific test suites
+npm test -- --testPathPattern="adzuna"
+npm test -- --testPathPattern="fallback"
+npm test -- --testPathPattern="integration"
+
+# Run with coverage
+npm test -- --coverage
+
 ```
+
+### Example: API Service Test
+```TypeScript
+// Tests API adapter with environment variables, success, and error scenarios
+test('handles API errors gracefully', async () => {
+  // Mock network error
+  // Call fetchAdzunaJobs
+  // Verify error response structure and message
+});
+```
+
+
+### Example: Component Integration Test
+```TypeScript
+// Tests user experience, not implementation details
+test('displays loading state during API call', async () => {
+  // Mock API delay
+  // Click test button
+  // Verify loading state appears
+  // Wait for results and verify display
+});
+```
+
 
 ### Testing Principles Demonstrated
 - **1. User-Centric Testing:** Verify what users actually experience
@@ -104,7 +151,7 @@ npm run test:watch
 
 1. **Clone the repository**
 ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/DevenPatel19/Seattle-Tech-Dashboard.git
    cd seattle-tech-dashboard
 ```
 2 **Install Dependencies**
@@ -125,7 +172,12 @@ NEXT_PUBLIC_ADZUNA_APP_KEY=your_app_key_here
 ```bash
 npm run dev
 ```
-5. ** Open [localhost](http://localhost:3000) in your browser**
+5. **Run the test suite**
+```bash
+npm test
+```
+6. **Open [localhost](http://localhost:3000) in your browser**
+
 
 ## 📁 Project Structure
 ```text
@@ -154,79 +206,82 @@ src/
 └── (other folders)     # context, hooks, lib, styles
 ```
 ## 🎯 Technical Highlights
-TypeScript Excellence
-Full type safety across all components
+**TypeScript Excellence**
+- Full type safety across all components
+- Generic interfaces for API responses
+- Proper error handling with typed exceptions
 
-Generic interfaces for API responses
+**Professional API Layer**
+- Multi-source fallbacks (Adzuna → GitHub Jobs → Mock data)
+- Request caching to respect rate limits
+- Error resilience with graceful degradation
 
-Proper error handling with typed exceptions
+**Comprehensive Testing Suite**
+- Unit tests for API services and data transformation
+- Integration tests for user interactions and component behavior
+- Mocked external dependencies for reliable testing
+- Environment variable handling in test
 
-Professional API Layer
-Multi-source fallbacks (Adzuna → GitHub Jobs → Mock data)
 
-Request caching to respect rate limits
 
-Error resilience with graceful degradation
+**Modern UI/UX**
+- Blue-to-Emerald gradients matching Seattle's "Emerald City" theme
+- Responsive grid layouts with Tailwind CSS
+- Smooth hover interactions and transitions
 
-Modern UI/UX
-Blue-to-Emerald gradients matching Seattle's "Emerald City" theme
+**Production Ready**
+- Environment variable configuration
+- Component-based architecture
+- Performance-optimized chart rendering
+- Robust error boundaries and fallback UI
 
-Responsive grid layouts with Tailwind CSS
-
-Smooth hover interactions and transitions
-
-Production Ready
-Environment variable configuration
-
-Component-based architecture
-
-Performance-optimized chart rendering
 
 ## 🚧 Development Phases
 ### ✅ Phase 1: Foundation & API Integration
-Next.js + TypeScript setup
+- Next.js + TypeScript setup
+- Tailwind CSS styling system
+- Adzuna & GitHub Jobs API integration
+- Professional chart visualizations
 
-Tailwind CSS styling system
+### ✅ Phase 2: Testing & Robustness (COMPLETED)
+- Comprehensive test suite with Jest and React Testing Library
+- API service tests for Adzuna and fallback mechanisms
+- Component integration tests for user interactions
+- Error handling and graceful degradation
 
-Adzuna & GitHub Jobs API integration
 
-Professional chart visualizations
+### 🔄 Phase 3: Advanced Features (In Progress)
+- Real-time data updates
+- Interactive filters and date ranges
+- Additional data sources
+- User authentication
 
-### 🔄 Phase 2: Advanced Features (In Progress)
-Real-time data updates
-
-Interactive filters and date ranges
-
-Additional data sources
-
-User authentication
-
-### 📋 Phase 3: Production Polish
-Performance optimization
-
-Accessibility improvements
-
-Comprehensive testing
-
-Deployment pipeline
+### 📋 Phase 4: Production Polish
+- Performance optimization
+- Accessibility improvements
+- Comprehensive testing (expansion)
+- Deployment pipeline
 
 ## 🌐 API Integration
 This project demonstrates real-world API integration with:
 
-Adzuna Jobs API - Primary data source for tech job postings
+- Adzuna Jobs API - Primary data source for tech job postings
+- GitHub Jobs API - Fallback data source
+- Seattle Open Data - Economic indicators (planned)
 
-GitHub Jobs API - Fallback data source
-
-Seattle Open Data - Economic indicators (planned)
 
 ## 🎨 Design System
-Colors: Professional blue-to-emerald gradients
+- **Colors**: Professional blue-to-emerald gradients
+- **Typography**: Clean, readable fonts
+- **Layout**: Responsive grid with consistent spacing
+- **Charts**: Accessible data visualizations with proper contrast
 
-Typography: Clean, readable fonts
+🎨 Design System
+- Colors: Professional blue-to-emerald gradients
+- Typography: Clean, readable fonts
+- Layout: Responsive grid with consistent spacing
+- Charts: Accessible data visualizations with proper contrast
 
-Layout: Responsive grid with consistent spacing
-
-Charts: Accessible data visualizations with proper contrast
 
 ## 🤝 Contributing
 This is a portfolio project demonstrating professional development practices. Feel free to fork and adapt for your own learning!

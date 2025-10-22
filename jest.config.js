@@ -3,7 +3,7 @@ import nextJest from 'next/jest.js'
 
 /** @type {import('jest').Config} */
 const jestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/__tests__/setup/env-setup.ts'],
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {  // ← FIXED: Changed from moduleNameMapping
     '^@/(.*)$': '<rootDir>/src/$1',
