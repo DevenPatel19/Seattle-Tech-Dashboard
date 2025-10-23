@@ -2,7 +2,7 @@
 
 A professional, data-driven dashboard built with Next.js and TypeScript to visualize the Seattle tech industry landscape. This project demonstrates modern frontend development practices and real-world API integration.
 
-![Dashboard Preview](public\screentshot.svg)
+![Dashboard Preview](https://github.com/DevenPatel19/Seattle-Tech-Dashboard/blob/main/public/screentshot.svg)
 ## ✨ Features
 
 - **Real-time Job Market Data** - Live integration with Adzuna & GitHub Jobs APIs
