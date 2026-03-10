@@ -23,7 +23,28 @@ A professional, data-driven dashboard built with Next.js and TypeScript to visua
 - **Testing**: Jest, React Testing Library, @testing-library/user-event
 - **Deployment**: Vercel
 
+## 📊 The Problem
 
+Job seekers and career-changers in Seattle's competitive tech market struggle to:
+
+1. **Understand real-time demand** – Static job boards don't reveal which skills are actually trending
+2. **Identify skill gaps** – No easy way to compare their current skills against market requirements
+3. **Track market dynamics** – Hiring trends change rapidly, but data is scattered across multiple platforms
+
+## 💡 The Solution
+
+A real-time analytics dashboard that transforms live job posting data into actionable market intelligence:
+
+- **Live API Integration** – Pulls real-time data from Adzuna's job API, showing current market conditions
+- **Interactive Visualizations** – Chart.js displays skill frequency, salary ranges, and job type distributions
+- **Clean, Responsive UI** – Next.js and Tailwind CSS deliver a professional, mobile-friendly experience
+
+## 🏆 Technical Achievement
+
+- **Production deployment** on Vercel with CI/CD pipeline
+- **Real-time data integration** from external API
+- **TypeScript** for type safety and maintainability
+- **Demonstrates**: API integration, data visualization, responsive design, and rapid deployment
 ## 🧪 Testing Strategy
 
 ### ✅ COMPREHENSIVE TEST COVERAGE ACHIEVED
